@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#257666">
+  <meta name="description" content="学藏 StudyHarbor：集中收藏课程、文章、视频与下载资料，按主题检索，记录学习进度。">
+  <title>学藏 StudyHarbor · 我的学习资料库</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./core.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到资料库</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="资料库导航">
+      <a class="brand" href="./" aria-label="学藏首页"><img src="./icon.svg" alt="" width="38" height="38"><span>学藏<small>STUDYHARBOR</small></span></a>
+      <div class="workspace-label"><span class="workspace-icon">学</span><span>我的学习空间<small>让收藏，变成收获</small></span></div>
+      <nav id="main-nav" class="nav-list" aria-label="学习状态"></nav>
+      <div class="nav-section-title">学习主题 <span id="topic-count"></span></div>
+      <nav id="topics-nav" class="topic-list" aria-label="学习主题"></nav>
+      <button class="new-topic" id="new-topic" type="button"><span aria-hidden="true">＋</span> 为新主题添加资料</button>
+      <div class="sidebar-bottom">
+        <div class="local-status"><span class="status-dot"></span>资料保存在此浏览器</div>
+        <button class="text-button help-button" id="help-btn" type="button">使用说明与数据备份 <span aria-hidden="true">↗</span></button>
+        <div class="version">学藏 · 开源学习资料库 <span>v0.1</span></div>
+      </div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar">
+        <span class="breadcrumb">我的空间 <span>/</span> <strong>资料库</strong></span>
+        <div class="topbar-right"><span class="privacy-chip"><span class="status-dot"></span>本地保存</span><button id="help-top" class="icon-button" aria-label="打开使用说明" type="button">?</button></div>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="page-heading">
+          <div><div class="eyebrow">A LITTLE MORE ORGANIZED, A LOT MORE FOCUSED.</div><h1 id="page-title">我的学习资料</h1><p id="page-subtitle">把散落的好资料，放回有条理的学习里。</p></div>
+          <div class="heading-actions">
+            <details class="backup-menu"><summary class="button button-secondary"><span id="backup-icon" aria-hidden="true"></span> 导入 / 导出 <span aria-hidden="true">⌄</span></summary><div class="menu-popover"><button id="export-btn" type="button">导出全部资料 · JSON</button><button id="markdown-btn" type="button">导出阅读清单 · Markdown</button><button id="import-btn" type="button">导入 JSON 备份</button></div></details>
+            <button class="button button-primary" id="add-btn" type="button"><span aria-hidden="true">＋</span> 收藏资料</button>
+          </div>
+        </div>
+        <section class="welcome-card" aria-label="学习资料库简介">
+          <div class="welcome-copy"><span class="section-kicker">给每一份好资料，一个位置</span><h2>少一点来回找，<br>多一点学进去。</h2><p>课程、文章、视频、下载资料，收在一起。<br>下次回来，从上次停下的地方继续。</p><button id="continue-btn" type="button" class="welcome-link">查看学习中的资料 <span aria-hidden="true">→</span></button></div>
+          <svg class="welcome-art" viewBox="0 0 420 220" fill="none" aria-hidden="true"><path d="M12 182H405M32 145H386M53 108H365M75 71H343" stroke="#cadbd4" stroke-width="1"/><path d="M81 199L139 37M152 199L199 37M224 199L259 37M296 199L319 37" stroke="#cadbd4" stroke-width="1"/><path d="M85 166L152 133L222 153L293 82L356 104" stroke="#397e6a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="85" cy="166" r="5" fill="#f8fbf7" stroke="#397e6a" stroke-width="2"/><circle cx="152" cy="133" r="5" fill="#f8fbf7" stroke="#397e6a" stroke-width="2"/><circle cx="222" cy="153" r="5" fill="#f8fbf7" stroke="#397e6a" stroke-width="2"/><circle cx="293" cy="82" r="6" fill="#397e6a"/><circle cx="356" cy="104" r="5" fill="#f8fbf7" stroke="#397e6a" stroke-width="2"/><g transform="rotate(-9 208 92)"><rect x="122" y="35" width="148" height="90" rx="10" fill="#fffef9" stroke="#d5dfd6"/><rect x="136" y="50" width="30" height="30" rx="7" fill="#e6eee4"/><path d="M143 58H159V72H143Z" stroke="#5d806c" stroke-width="1.5"/><path d="M172 55H251M172 64H232M138 93H252M138 104H216" stroke="#c8d3c8" stroke-width="3" stroke-linecap="round"/></g><g transform="rotate(8 298 153)"><rect x="230" y="113" width="130" height="74" rx="9" fill="#fffef9" stroke="#d5dfd6"/><rect x="243" y="126" width="26" height="26" rx="6" fill="#f2e6c7"/><path d="M253 133L261 139L253 145V133Z" fill="#a18b4f"/><path d="M279 132H344M279 142H322M245 166H343" stroke="#d5d7c5" stroke-width="3" stroke-linecap="round"/></g><circle cx="332" cy="48" r="18" fill="#fffef9" stroke="#c8d9ca"/><path d="M324 48L330 54L340 43" stroke="#5a8267" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="welcome-stat"><strong id="total-count">0</strong><span>份资料，安心收藏</span></div>
+        </section>
+        <div id="demo-banner" class="demo-banner" hidden><div><span class="demo-badge">示例库</span><span>这些运筹学资料和进度仅用于演示，试着打开、编辑，或加入你自己的收藏。</span></div><button id="clear-demo" class="text-button" type="button">移除示例</button></div>
+        <section class="library-section" aria-label="资料列表">
+          <div class="library-heading"><div><h2 id="list-title">全部资料</h2><span id="result-count" class="count-label"></span></div><label class="search-box"><span id="search-icon" aria-hidden="true"></span><input id="search" type="search" placeholder="搜索标题、主题、标签、笔记…" aria-label="搜索资料" autocomplete="off"><kbd>/</kbd></label></div>
+          <div class="filters-row"><div id="type-filters" class="type-filters" role="group" aria-label="按资料类型筛选"></div><label class="sort-label"><span>排序</span><select id="sort" aria-label="资料排序"><option value="updated">最近更新</option><option value="oldest">最早收藏</option><option value="title">标题名称</option></select></label></div>
+          <div id="active-filters" class="active-filters" hidden><span id="filter-description"></span><button class="text-button" id="reset-filters" type="button">清除筛选</button></div>
+          <div id="resource-grid" class="resource-grid" aria-live="polite" aria-atomic="false"></div>
+          <div class="library-footer"><span>好资料值得收藏，也值得学完。</span><span id="footer-count"></span></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <dialog id="resource-dialog" class="resource-dialog" aria-labelledby="dialog-title">
+    <form id="resource-form"><div class="dialog-header"><div><span class="section-kicker">给下一次学习留个入口</span><h2 id="dialog-title">收藏一份好资料</h2></div><button class="icon-button close-dialog" type="button" aria-label="关闭窗口">×</button></div>
+      <div class="form-body"><label>资料链接 <span class="required">*</span><input name="url" id="form-url" type="url" required maxlength="4000" placeholder="https://…"><small>粘贴原网页、课程或下载页面的链接。</small></label>
+        <label>标题 <span class="required">*</span><input name="title" required maxlength="160" placeholder="例如：线性规划 · 单纯形法讲解"></label>
+        <div class="form-row"><label>学习主题<input name="topic" list="topic-options" maxlength="60" placeholder="例如：线性规划"><datalist id="topic-options"></datalist></label><label>资料类型<select name="type"><option value="course">课程</option><option value="article">文章</option><option value="video">视频</option><option value="download">下载资料</option><option value="practice">练习 / 代码</option></select></label></div>
+        <div class="form-row"><label>学习状态<select name="status"><option value="todo">待学习</option><option value="learning">学习中</option><option value="done">已完成</option></select></label><label>标签<input name="tags" maxlength="210" placeholder="例如：入门, 考试, Python"></label></div>
+        <label>学到哪里了<input name="checkpoint" maxlength="200" placeholder="例如：第 3 讲，看到 18:30；下次复习对偶问题"></label>
+        <details id="extra-fields" class="extra-fields"><summary>添加笔记 / 下载资料位置 <span aria-hidden="true">＋</span></summary><label>简短笔记<textarea name="notes" rows="3" maxlength="5000" placeholder="为什么收藏它？哪些内容值得回看？"></textarea></label><label>本地文件位置<input name="location" maxlength="500" placeholder="例如：D:\学习\运筹学\线性规划讲义.pdf"><small>用于查找提示，可复制到文件管理器打开；文件本身仍保存在你的电脑。</small></label></details>
+        <label class="checkbox-label"><input type="checkbox" name="favorite"> 标为重点资料</label>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+      </div><div class="dialog-footer"><button class="button button-secondary close-dialog" type="button">取消</button><button class="button button-primary" type="submit">保存资料</button></div>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog" class="small-dialog" aria-labelledby="confirm-title"><div class="dialog-header"><h2 id="confirm-title">确认操作</h2><button type="button" class="icon-button" id="confirm-close" aria-label="关闭确认窗口">×</button></div><p id="confirm-message" class="confirm-message"></p><div class="dialog-footer"><button id="confirm-cancel" class="button button-secondary" type="button">取消</button><button id="confirm-accept" class="button button-danger" type="button">确认移除</button></div></dialog>
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title"><div class="dialog-header"><div><span class="section-kicker">欢迎使用学藏</span><h2 id="help-title">从收藏，到真正学会</h2></div><button class="icon-button" id="help-close" type="button" aria-label="关闭使用说明">×</button></div><div class="help-body"><div class="help-step"><span>01</span><div><h3>先收进来，再慢慢整理</h3><p>点击“收藏资料”，粘贴链接、填入标题。可以按课程章节设置主题，也可以先放进“未分类”。</p></div></div><div class="help-step"><span>02</span><div><h3>下次回来，接着上次学</h3><p>用“待学习 → 学习中 → 已完成”记录进度。编辑资料，在“学到哪里了”里写下课时、时间点或页码。</p></div></div><div class="help-step"><span>03</span><div><h3>下载资料也有迹可循</h3><p>收藏原下载页面，并记下本地文件位置。之后可搜索文件名或一键复制位置，到文件管理器里打开。</p></div></div><div class="help-note"><h3>你的资料保存在这里</h3><p>收藏保存在当前设备、当前浏览器的此网站空间。清除浏览器数据、更换浏览器或网站地址后，资料不会自动跟随。无痕模式结束后可能丢失。</p><p>请定期“导出全部资料”保存 JSON 备份；换设备时“导入 JSON 备份”。导入采用合并方式，相同链接保留已有记录。Markdown 阅读清单适合阅读和分享，恢复数据请用 JSON。</p><p>备份包含你填写的标题、链接、笔记和文件位置，不包含下载文件本身。本工具不自动读取网页内容或同步账号数据；点击外链后会进入对应网站。</p></div><p class="help-credit">运筹学示例链接来自 MIT OpenCourseWare 与 Google OR-Tools 官方网站，仅提供入口；示例笔记与学习状态为演示内容。</p></div><div class="dialog-footer"><button class="button button-primary" type="button" id="help-done">开始整理</button></div></dialog>
+  <input type="file" id="import-file" accept=".json,application/json" hidden>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
